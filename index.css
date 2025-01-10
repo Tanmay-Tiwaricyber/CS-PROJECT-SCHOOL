@@ -1,0 +1,288 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fef8e4;
+    background-image: url("bg.png");
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chrome-window {
+    width: 80vw;
+    height: 90vh;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chrome Tab Bar with Doodle Theme */
+.tab-bar {
+    background-color: #f1f1f1;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.tab-button {
+    background-color: #d4d4d4;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.tab-button.active {
+    background-color: #ff6f61;
+    color: white;
+}
+
+/* Doodle Effects on Tab */
+.doodle-tab {
+    position: absolute;
+    background-color: #ff6f61;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: doodleMoveTab 5s linear infinite;
+    opacity: 0.6;
+}
+
+.doodle-line {
+    top: 30%;
+    left: 60%;
+    width: 50px;
+    height: 5px;
+    border-radius: 5px;
+    animation: lineMove 5s linear infinite;
+}
+
+/* Tab Action Icons */
+.tab-actions {
+    display: flex;
+    margin-left: auto;
+    gap: 10px;
+}
+
+.tab-icon {
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-icon.minimize::before {
+    content: '-';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+
+.tab-icon.maximize::before {
+    content: '[]';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+}
+
+.tab-icon.close::before {
+    content: 'X';
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: 1px;
+    left: 5px;
+}
+
+/* URL Link Box */
+.url-link-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #d4d4d4;
+    border-radius: 5px;
+    margin: 20px 20px 0 20px;
+}
+
+.url-input {
+    width: 80%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+    color: #333;
+}
+
+.go-button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.go-button:hover {
+    background-color: #ff3d2f;
+}
+
+/* Content Area */
+.content {
+    flex-grow: 1;
+    overflow: auto;
+    position: relative;
+    padding: 20px;
+}
+
+/* Welcome Container */
+.welcome-container {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-content h1 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 3rem;
+    color: #ff6f61;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.welcome-content .line {
+    border-top: 3px solid #ff6f61;
+    width: 50%;
+    margin: 20px auto;
+    animation: lineDraw 2s ease-out;
+}
+
+.welcome-content .start-button {
+    background-color: #ff6f61;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.welcome-content .start-button:hover {
+    background-color: #ff3d2f;
+    transform: scale(1.05);
+}
+
+/* Animation for the line */
+@keyframes lineDraw {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 50%;
+    }
+}
+
+/* Doodle Background */
+.doodle-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.doodle-item {
+    position: absolute;
+    background-color: #ff6f61;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: doodleMove 5s linear infinite;
+}
+
+.doodle-1 {
+    top: 20%;
+    left: 10%;
+    animation-delay: -1s;
+}
+
+.doodle-2 {
+    top: 50%;
+    left: 40%;
+    animation-delay: -2s;
+}
+
+.doodle-3 {
+    top: 80%;
+    left: 70%;
+    animation-delay: -3s;
+}
+
+.doodle-4 {
+    top: 40%;
+    left: 80%;
+    animation-delay: -4s;
+}
+
+@keyframes doodleMove {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(200px, 100px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-100px, -200px);
+        opacity: 0.3;
+    }
+}
+
+/* Doodle Text */
+.welcome-content h1 span {
+    color: #ff6f61;
+    font-weight: bold;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
